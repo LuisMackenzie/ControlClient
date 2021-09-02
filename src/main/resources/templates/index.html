@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+<h1> Inicio Mack Web Development</h1>
+<br/>
+<div th:if="${personas != null and !personas.empty}">
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.name}">Mostrar Nombre Aqui</td>
+            <td th:text="${persona.last}">Mostrar Apellido Aqui</td>
+            <td th:text="${persona.email}">Mostrar email Aqui</td>
+            <td th:text="${persona.phone}">Mostrar phone Aqui</td>
+        </tr>
+    </table>
+
+</div>
+<div th:if="${personas == null or personas.empty}">
+
+    La Lista de personas esta vacia
+
+</div>
+
+<!--<p>Nombre: <span th:text="${persona.name}">Mostrar Nombre Aqui</span></p>
+<p>Apellido: <span th:text="${persona.last}">Mostrar Apellido Aqui</span></p>
+<p>Email: <span th:text="${persona.email}">Mostrar Email Aqui</span></p>
+<p>Telefono: <span th:text="${persona.phone}">Mostrar telefono Aqui</span></p>-->
+<br/>
+
+</body>
+</html>
