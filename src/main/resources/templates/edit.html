@@ -5,7 +5,8 @@
     <title>Datos de la persona</title>
 </head>
 <body>
-<h1>Datos de la persona</h1>
+<header th:replace="layout/plantilla :: header"></header>
+<h2>Datos de la persona</h2>
 <a th:href="@{/}">Volver</a>
 <br/>
 <br/>
@@ -29,6 +30,7 @@
     <br/>
     <input type="submit" name="save" value="Guardar"/>
 </form>
-
+<br/>
+<footer th:replace="layout/plantilla :: footer"></footer>
 </body>
 </html>

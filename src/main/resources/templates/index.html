@@ -5,8 +5,8 @@
     <title>Inicio</title>
 </head>
 <body>
-
-<h1> Inicio Mack Web Development</h1>
+    <header th:replace="layout/plantilla :: header"></header>
+<!--<h1>Mack Web Development</h1>-->
 <br/>
 <a th:href="@{/agregar}">Crear persona</a>
 <br/>
@@ -46,6 +46,8 @@
 <p>Email: <span th:text="${persona.email}">Mostrar Email Aqui</span></p>
 <p>Telefono: <span th:text="${persona.phone}">Mostrar telefono Aqui</span></p>-->
 <br/>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
 
 </body>
 </html>
