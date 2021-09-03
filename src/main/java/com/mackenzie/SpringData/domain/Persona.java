@@ -1,7 +1,10 @@
 package com.mackenzie.SpringData.domain;
 
 import lombok.Data;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -16,6 +19,15 @@ public class Persona implements Serializable {
     @Column(name = "idpersona")
     private Long idPersona;
 
-    private String name, last, email, phone;
+    @NotEmpty
+    private String name;
 
+    @NotEmpty
+    private String last;
+
+    @NotEmpty
+    @Email
+    private String email;
+
+    private String phone;
 }
