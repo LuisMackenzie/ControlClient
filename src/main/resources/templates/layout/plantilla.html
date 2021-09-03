@@ -10,7 +10,11 @@
     </header>
 
     <footer th:fragment="footer">
-        <p> [[#{plantilla.pie-pagina}]] <a href="https://luisbaez.tk/" target="_blank">Mack Software</a></p>
+        <div>
+            <br/>
+            <a th:href="@{/(lang=es)}">ES</a> | <a th:href="@{/(lang=en)}">EN</a>
+        </div>
+        <span> [[#{plantilla.pie-pagina}]] <a href="https://luisbaez.tk/" target="_blank">Mack Software</a></span>
     </footer>
 </body>
 </html>
