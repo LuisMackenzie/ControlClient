@@ -8,36 +8,36 @@
     <header th:replace="layout/plantilla :: header"></header>
 <!--<h1>Mack Web Development</h1>-->
 <br/>
-<a th:href="@{/agregar}">Crear persona</a>
+<a th:href="@{/agregar}" th:text="#{persona.crear}"></a>
 <br/>
 <div th:if="${personas != null and !personas.empty}">
     <table border="1">
         <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <th>[[#{persona.name}]]</th>
+            <th>[[#{persona.last}]]</th>
+            <th>[[#{persona.email}]]</th>
+            <th>[[#{persona.phone}]]</th>
+            <th>[[#{accion.edit}]]</th>
+            <th>[[#{accion.delete}]]</th>
         </tr>
         <tr th:each="persona : ${personas}">
             <td th:text="${persona.name}">Mostrar Nombre Aqui</td>
             <td th:text="${persona.last}">Mostrar Apellido Aqui</td>
             <td th:text="${persona.email}">Mostrar email Aqui</td>
             <td th:text="${persona.phone}">Mostrar phone Aqui</td>
-            <td><a th:href="@{/edit/}  + ${persona.idPersona}" th:text="Editar"></a></td>
+            <td><a th:href="@{/edit/}  + ${persona.idPersona}">[[#{accion.edit}]]</a></td>
             <!--http://localhost:8080/delete/5-->
             <!--<td><a th:href="@{/delete/}  + ${persona.idPersona}" th:text="Eliminar"></a></td>-->
             <!--Aqui hacemos un link con query parameters-->
             <!--http://localhost:8080/delete?idPersona=5-->
-            <td><a th:href="@{/delete(idPersona=${persona.idPersona})}" th:text="Eliminar"></a></td>
+            <td><a th:href="@{/delete(idPersona=${persona.idPersona})}">[[#{accion.delete}]]</a></td>
         </tr>
     </table>
 
 </div>
 <div th:if="${personas == null or personas.empty}">
 
-    La Lista de personas esta vacia
+    [[#{persona.listavacia}]]
 
 </div>
 
