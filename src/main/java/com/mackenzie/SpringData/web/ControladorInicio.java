@@ -46,4 +46,17 @@ public class ControladorInicio {
         return "redirect:/";
     }
 
+    @GetMapping("/edit/{idPersona}")
+    public String edit(Persona persona, Model model) {
+        persona = service.findPersona(persona);
+        model.addAttribute("persona", persona);
+        return "edit";
+    }
+
+    @GetMapping("/delete/{idPersona}")
+    public String delete(Persona persona) {
+        service.delete(persona);
+        return "redirect:/";
+    }
+
 }
