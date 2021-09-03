@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Arrays;
 
@@ -20,8 +21,6 @@ public class ControladorInicio {
     @Autowired
     private PersonaService service;
 
-
-
     @GetMapping("/")
     public String inicio(Model model) {
         // Con inferencia de tipos
@@ -34,6 +33,17 @@ public class ControladorInicio {
         // log.debug("Mas destalles del controlador spring en puerto 9090");
         return "index";
 
+    }
+
+    @GetMapping("/agregar")
+    public String agregar(Persona persona) {
+        return "edit";
+    }
+
+    @PostMapping("/guardar")
+    public String save(Persona persona) {
+        service.save(persona);
+        return "redirect:/";
     }
 
 }
