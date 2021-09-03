@@ -1,10 +1,9 @@
 package com.mackenzie.SpringData.web;
 
-import com.mackenzie.SpringData.dao.PersonaDao;
 import com.mackenzie.SpringData.domain.Persona;
+import com.mackenzie.SpringData.service.PersonaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ public class ControladorInicio {
 
     // Esta anotacion equivale a @Inject para la Injeccion de dependencias
     @Autowired
-    private PersonaDao personaDao;
+    private PersonaService service;
 
 
 
@@ -28,7 +27,7 @@ public class ControladorInicio {
         // Con inferencia de tipos
         // var personas = personaDao.findAll();
         // Sin inferencia de tipos
-        personas = personaDao.findAll();
+        personas = service.getAllPersonas();
 
         log.info("ejecutando el controlador Spring MVC");
         model.addAttribute("personas", personas);
