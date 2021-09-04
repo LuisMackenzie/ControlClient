@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Plantilla</title>
@@ -13,8 +13,12 @@
         <div>
             <br/>
             <a th:href="@{/(lang=es)}">ES</a> | <a th:href="@{/(lang=en)}">EN</a>
+            <span> [[#{plantilla.pie-pagina}]] <a href="https://luisbaez.tk/" target="_blank">Mack Software</a></span>
+            <form method="POST" th:action="@{/logout}">
+                <a href="#" onclick="this.parentNode.submit();">Logout</a>
+            </form>
         </div>
-        <span> [[#{plantilla.pie-pagina}]] <a href="https://luisbaez.tk/" target="_blank">Mack Software</a></span>
+
     </footer>
 </body>
 </html>

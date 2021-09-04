@@ -8,7 +8,6 @@ public class SpringControlClient {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringControlClient.class, args);
-		//System.out.println("Hello world MAckenzie Consolas");
 	}
 
 }

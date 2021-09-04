@@ -4,6 +4,8 @@ import com.mackenzie.SpringData.domain.Persona;
 import com.mackenzie.SpringData.service.PersonaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -24,13 +26,14 @@ public class ControladorInicio {
     private PersonaService service;
 
     @GetMapping("/")
-    public String inicio(Model model) {
+    public String inicio(Model model, @AuthenticationPrincipal User user) {
         // Con inferencia de tipos
         // var personas = personaDao.findAll();
         // Sin inferencia de tipos
         personas = service.getAllPersonas();
 
         log.info("ejecutando el controlador Spring MVC");
+        log.info("Alguien se logee con exito: " + user);
         model.addAttribute("personas", personas);
         // log.debug("Mas destalles del controlador spring en puerto 9090");
         return "index";
