@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
     private long idUsuario;
 
     @NotEmpty
-    private String name;
+    private String username;
 
     @NotEmpty
     private String pass;
