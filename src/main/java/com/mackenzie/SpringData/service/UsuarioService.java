@@ -35,10 +35,10 @@ public class UsuarioService implements UserDetailsService {
         var roles = new ArrayList<GrantedAuthority>();
 
         for (Rol rol: usuario.getRoles()) {
-            roles.add(new SimpleGrantedAuthority(rol.getName()));
+            roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
 
-        return new User(usuario.getUsername(), usuario.getPass(), roles);
+        return new User(usuario.getUsername(), usuario.getPassword(), roles);
 
     }
 }

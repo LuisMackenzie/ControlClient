@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
     private String username;
 
     @NotEmpty
-    private String pass;
+    private String password;
 
     @OneToMany
     @JoinColumn(name="id_usuario")
