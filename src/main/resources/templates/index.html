@@ -1,52 +1,18 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="layout/plantilla :: head">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/plantilla :: head">
     <title>Inicio</title>
 </head>
 <body>
+
     <header th:replace="layout/plantilla :: header"></header>
-<!--<h1>Mack Web Development</h1>-->
-<br/>
-<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{persona.crear}"></a>
-<br/>
-<div th:if="${personas != null and !personas.empty}">
-    <table border="1">
-        <tr>
-            <th>[[#{persona.name}]]</th>
-            <th>[[#{persona.last}]]</th>
-            <th>[[#{persona.email}]]</th>
-            <th>[[#{persona.phone}]]</th>
-            <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.edit}]]</th>
-            <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.delete}]]</th>
-        </tr>
-        <tr th:each="persona : ${personas}">
-            <td th:text="${persona.name}">Mostrar Nombre Aqui</td>
-            <td th:text="${persona.last}">Mostrar Apellido Aqui</td>
-            <td th:text="${persona.email}">Mostrar email Aqui</td>
-            <td th:text="${persona.phone}">Mostrar phone Aqui</td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/edit/} + ${persona.idPersona}">[[#{accion.edit}]]</a></td>
-            <!--http://localhost:8080/delete/5-->
-            <!--<td><a th:href="@{/delete/}  + ${persona.idPersona}" th:text="Eliminar"></a></td>-->
-            <!--Aqui hacemos un link con query parameters-->
-            <!--http://localhost:8080/delete?idPersona=5-->
-            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/delete(idPersona=${persona.idPersona})}">[[#{accion.delete}]]</a></td>
-        </tr>
-    </table>
 
-</div>
-<div th:if="${personas == null or personas.empty}">
+    <section th:replace="layout/addButton :: addButton"></section>
 
-    [[#{persona.listavacia}]]
+    <!--<section th:replace="layout/addClient :: addClient"></section>-->
 
-</div>
-
-<!--<p>Nombre: <span th:text="${persona.name}">Mostrar Nombre Aqui</span></p>
-<p>Apellido: <span th:text="${persona.last}">Mostrar Apellido Aqui</span></p>
-<p>Email: <span th:text="${persona.email}">Mostrar Email Aqui</span></p>
-<p>Telefono: <span th:text="${persona.phone}">Mostrar telefono Aqui</span></p>-->
-<br/>
+    <section th:replace="layout/clientList :: clientList"></section>
 
     <footer th:replace="layout/plantilla :: footer"></footer>
 
