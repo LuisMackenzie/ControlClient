@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
     <meta charset="UTF-8">
     <title>Datos de la persona</title>
-</head>
+    </head>
 <body>
-<header th:replace="layout/plantilla :: header"></header>
-<h2>[[#{persona.formulario}]]</h2>
-<a th:href="@{/}">[[#{accion.back}]]</a>
-<br/>
-<br/>
-<form th:action="@{/guardar}" method="post" th:object="${persona}">
-    <input type="hidden" name="idPersona" th:field="*{idPersona}" value="1"/>
-    <br/>
-    <label>[[#{persona.name}]]</label>
-    <input type="text" name="name" th:field="*{name}"/>
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error al introducir nombre</span>
-    <br/>
-    <label>[[#{persona.last}]]</label>
-    <input type="text" name="last" th:field="*{last}"/>
-    <span th:if="${#fields.hasErrors('last')}" th:errors="*{last}">Error al introducir apellido</span>
-    <br/>
-    <label>[[#{persona.email}]]</label>
-    <input type="text" name="email" th:field="*{email}"/>
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error al introducir Email</span>
-    <br/>
-    <label>[[#{persona.phone}]] </label>
-    <input type="text" name="phone" th:field="*{phone}"/>
-    <br/>
-    <input type="submit" name="save" th:value="#{accion.save}"/>
-</form>
-<br/>
-<footer th:replace="layout/plantilla :: footer"></footer>
+
+    <header th:replace="layout/plantilla :: header"></header>
+
+    <section th:replace="layout/editClient :: editClient"></section>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
+
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout/plantilla :: head">
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+</head>
+<body>
+
+    <section th:fragment="editClient">
+
+        <form th:action="@{/guardar}" th:object="${persona}"
+              method="POST" class="was-validated">
+            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+            <section th:replace="layout/editButton :: editButton"></section>
+            <div id="details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>[[#{accion.edit}]]</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="name">[[#{persona.name}]]</label>
+                                        <input type="text" class="form-control" name="name"
+                                               required="true" th:field="*{name}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="last">[[#{persona.last}]]</label>
+                                        <input type="text" class="form-control" name="last"
+                                               required="true" th:field="*{last}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">[[#{persona.email}]]</label>
+                                        <input type="email" class="form-control" name="email"
+                                               required="true" th:field="*{email}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">[[#{persona.phone}]]</label>
+                                        <input type="text" class="form-control" name="phone"
+                                               required="true" th:field="*{phone}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="saldo">[[#{persona.saldo}]]</label>
+                                        <input type="number" class="form-control" name="saldo"
+                                               required="true" th:field="*{saldo}" step="any"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+</body>
+</html>

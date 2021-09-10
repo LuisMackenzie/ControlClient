@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Agregar Cliente</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
                         </button>
                     </div>
 
-                    <form th:action="@{/guardar}" method="post" th:object="${persona}">
+                    <form th:action="@{/guardar}" th:object="${persona}" method="POST" class="was-validated">
 
                         <div class="modal-body">
                             <div class="form-group">
@@ -27,19 +27,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="last" th:text="#{persona.last}">Apellido</label>
-                                <input type="text" class="form-control" name="name" required="true"/>
+                                <input type="text" class="form-control" name="last" required="true"/>
                             </div>
                             <div class="form-group">
                                 <label for="email" th:text="#{persona.email}">Correo Electronico</label>
-                                <input type="email" class="form-control" name="name" required="true"/>
+                                <input type="email" class="form-control" name="email" required="true"/>
                             </div>
                             <div class="form-group">
                                 <label for="phone" th:text="#{persona.phone}">Telefono</label>
-                                <input type="tel" class="form-control" name="name" />
+                                <input type="tel" class="form-control" name="phone" />
                             </div>
                             <div class="form-group">
                                 <label for="saldo" th:text="#{persona.saldo}">Saldo</label>
-                                <input type="number" class="form-control" name="name" required="true" step="any"/>
+                                <input type="number" class="form-control" name="saldo" required="true" step="any"/>
                             </div>
                         </div>
                         <div class="modal-footer">
