@@ -10,9 +10,9 @@
     <section th:fragment="addButton" class="py-4 mb-4 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-md3" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addClient">
-                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                        <i class="fas fa-plus"></i> [[#{accion.add}]]
                     </a>
                 </div>
             </div>

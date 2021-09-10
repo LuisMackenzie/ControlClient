@@ -20,32 +20,34 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>#</th>
-                                        <th th:text="#{persona.nombre}">Nombre</th>
+                                        <th th:text="#{persona.name}">Nombre</th>
                                         <th th:text="#{persona.saldo}">Saldo</th>
-                                        <th>#</th>
-                                        <th>#</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                    <tr th:each="persona, contador : ${personas}}">
-                                        <td>[[${contador.count}]]</td>
-                                        <td>[[${persona.name}]] + ' ' + [[${persona.last}]]</td>
-                                        <td>[[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
-                                        <td>
-                                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/edit/} + ${persona.idPersona}"
-                                               class="btn btn-secondary">
-                                                <i class="fas fa-angle-double-right"></i> [[#{accion.edit}]]
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete(idPersona=${persona.idPersona)}}"
-                                               class="btn btn-dark">
-                                                <i class="fas fa-angle-double-right"></i> [[#{accion.delete}]]
-                                            </a>
-                                        </td>
-                                        <td th:text="${persona.email}">Mostrar email Aqui</td>
-                                        <td th:text="${persona.phone}">Mostrar phone Aqui</td>
-                                    </tr>
+
                                 <tbody>
+
+                                <tr th:each="persona, contador : ${personas}">
+                                    <td>[[${contador.count}]]</td>
+                                    <td>[[${persona.name} + ' ' + ${persona.last}]]</td>
+                                    <td>[[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
+                                    <td>
+                                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/edit/} + ${persona.idPersona}"
+                                           class="btn btn-secondary">
+                                            <i class="fas fa-angle-double-right"></i> [[#{accion.edit}]]
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/delete(idPersona=${persona.idPersona})}"
+                                           class="btn btn-dark">
+                                            <i class="fas fa-angle-double-right"></i> [[#{accion.delete}]]
+                                        </a>
+                                    </td>
+                                    <!--<td th:text="${persona.email}">Mostrar email Aqui</td>
+                                    <td th:text="${persona.phone}">Mostrar phone Aqui</td>-->
+                                </tr>
 
                                 </tbody>
 
@@ -57,6 +59,27 @@
 
                     </div>
                 </div>
+
+                <div class="col-md-3">
+                    <div class="card text-center bg-danger text-white mb-3">
+                        <div class="card-body">
+                            <h3 th:text="#{persona.saldoTotal}">Saldo total</h3>
+                            <h4 class="display-4">
+                                [[${new java.text.DecimalFormat('$#,##0.00').format(saldoTotal)}]]
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3 th:text="#{persona.totalClient}">Total Clientes</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-users"></i> [[${totalClientes}]]
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
