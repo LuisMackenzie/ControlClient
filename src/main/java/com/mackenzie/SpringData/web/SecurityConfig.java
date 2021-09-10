@@ -59,8 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Override
+    /*@Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
-    }
+    }*/
 }

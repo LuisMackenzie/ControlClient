@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/plantilla :: head">
     <meta charset="UTF-8">
     <title>Editar Cliente</title>
@@ -29,7 +29,7 @@
                                                required="true" th:field="*{name}"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="last">[[#{persona.last}]]</label>
+                                        <label for="last" >[[#{persona.last}]]</label>
                                         <input type="text" class="form-control" name="last"
                                                required="true" th:field="*{last}"/>
                                     </div>
@@ -44,7 +44,7 @@
                                                required="true" th:field="*{phone}"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="saldo">[[#{persona.saldo}]]</label>
+                                        <label for="saldo" >[[#{persona.saldo}]]</label>
                                         <input type="number" class="form-control" name="saldo"
                                                required="true" th:field="*{saldo}" step="any"/>
                                     </div>
